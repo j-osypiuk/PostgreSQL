@@ -91,10 +91,9 @@ BEGIN
         FROM locations
         WHERE location_id = i;
 
-        SELECT count(d.department_id) INTO departments_count
-        FROM locations l
-        LEFT JOIN departments d ON l.location_id = d.location_id
-        WHERE l.location_id = i;
+        SELECT count(department_id) INTO departments_count
+        FROM departments
+        WHERE location_id = i;
 
         city_info := city_info || ' ';
 
